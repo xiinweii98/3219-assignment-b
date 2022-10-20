@@ -5,13 +5,11 @@ Msg = require('./messageModel')
 exports.index = (req, res) =>
     Msg.get((err, msgs) => {
         if (err) {
-            res.json({
-                status: "error",
-                message: err,
+            res.status(400).json({
+                message: err
             })
         } else {
-            res.json({
-                status: "success",
+            res.status(201).json({
                 message: "Messages retrieved successfully",
                 data: msgs
             })
@@ -25,13 +23,11 @@ exports.new = (req, res) => {
 
     msg.save(err => {
         if (err) {
-            res.json({
-                status: "error",
-                message: err,
+            res.status(400).json({
+                message: err
             })
         } else {
-            res.json({
-                status: 'success',
+            res.status(201).json({
                 message: 'New message created!',
                 data: msg
             })
@@ -42,13 +38,11 @@ exports.new = (req, res) => {
 exports.view = (req, res) => {
     Msg.findById(req.params.message_id, (err, msg) => {
         if (err) {
-            res.json({
-                status: "error",
-                message: err,
+            res.status(400).json({
+                message: err
             })
         } else {
-            res.json({
-                status: 'success',
+            res.status(201).json({
                 message: 'Message details loading...',
                 data: msg
             })
@@ -59,22 +53,19 @@ exports.view = (req, res) => {
 exports.update = (req, res) => {
     Msg.findById(req.params.message_id, (err, msg) => {
         if (err) {
-            res.json({
-                status: "error",
-                message: err,
+            res.status(400).json({
+                message: err
             })
         } else {
             msg.name = req.body.name ? req.body.name : msg.name
             msg.content = req.body.content ? req.body.content : msg.content
             msg.save(err => {
                 if (err) {
-                    res.json({
-                        status: "error",
-                        message: err,
+                    res.status(400).json({
+                        message: err
                     })
                 } else {
-                    res.json({
-                        status: 'success',
+                    res.status(201).json({
                         message: 'Message info updated.',
                         data: msg
                     })
@@ -89,13 +80,11 @@ exports.delete = (req, res) => {
         _id: req.params.message_id
     }, (err, msg) => {
         if (err) {
-            res.json({
-                status: "error",
-                message: err,
+            res.status(400).json({
+                message: err
             })
         } else {
-            res.json({
-                status: 'success',
+            res.status(201).json({
                 message: 'Message deleted.'
             })
         }

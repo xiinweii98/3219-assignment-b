@@ -10,7 +10,8 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 
-mongoose.connect('mongodb://localhost:27017/messages', { useNewUrlParser: true});
+require('dotenv').config()
+mongoose.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true});
 let db = mongoose.connection;
 if (!db) {
    console.log("Error connecting to mongodb.")
@@ -39,3 +40,5 @@ app.use('/api', router)
 app.listen(port, function () {
      console.log("Running CS3219 Assignment B on port " + port)
 });
+
+module.exports = app
