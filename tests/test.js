@@ -17,14 +17,16 @@ describe("Tests for application.", () => {
           done();
         })
     })
-    describe("Test case for indexing all messages.", () => {
-        it("Should retrieve all messages in the database.", () => {
+    describe("Test case for indexing all messages.", (done) => {
+        it("Should retrieve all messages in the database.", (done) => {
             chai.request(app)
                 .get('/api/message')
                 .end((err, res) => {
                     res.should.have.status(201)
                     res.body.should.be.a('object')
+                    done()
                 })
         })
+        done()
     })
 })
