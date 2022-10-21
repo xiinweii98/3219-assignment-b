@@ -3,12 +3,14 @@ let bodyParser = require('body-parser')
 let mongoose = require('mongoose')
 let app = express()
 let messageController = require('./messageController')
+let cors = require('cors')
 
 let router = require('express').Router()
 app.use(bodyParser.urlencoded({
    extended: true
 }))
 app.use(bodyParser.json())
+app.use(cors());
 
 require('dotenv').config()
 mongoose.connect(process.env.ENV == 'PROD' ? process.env.MONGO_DB_URI : 'mongodb://localhost:27017', { useNewUrlParser: true});
