@@ -18,13 +18,12 @@ describe("Tests for application.", () => {
         })
     })
     describe("Test case for indexing all messages.", () => {
-        it("Should retrieve all messages in the database.", (done) => {
+        it("Should retrieve all messages in the database.", () => {
             chai.request(app)
                 .get('/api/message')
                 .end((err, res) => {
                     res.should.have.status(201)
                     res.body.should.be.a('object')
-                    done()
                 })
         })
     })
