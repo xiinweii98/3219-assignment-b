@@ -52,7 +52,7 @@ on:
 
 env:
   PROJECT_ID: buoyant-embassy-366006 # TODO: update Google Cloud project id
-  SERVICE: default # TODO: update Cloud Run service name
+  SERVICE: cs3219-assignment-b # TODO: update Cloud Run service name
   REGION: asia-southeast1 # TODO: update Cloud Run service region
 
 jobs:
