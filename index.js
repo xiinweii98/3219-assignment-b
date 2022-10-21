@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 require('dotenv').config()
-mongoose.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true});
+mongoose.connect(process.env.ENV == 'PROD' ? process.env.MONGO_DB_URI : 'mongodb://localhost:27017', { useNewUrlParser: true});
 let db = mongoose.connection;
 if (!db) {
    console.log("Error connecting to mongodb.")
