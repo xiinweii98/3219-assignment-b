@@ -18,7 +18,7 @@ describe("Tests for application.", () => {
         })
     })
     describe("Test case for indexing all messages.", () => {
-        it("Should retrieve all messages in the database.", () => {
+        it("Should retrieve all messages in the database.", async() => {
             chai.request(app)
                 .get('/api/message')
                 .end((err, res) => {
