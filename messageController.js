@@ -1,7 +1,7 @@
 const e = require('express')
 
 Msg = require('./messageModel')
-
+ 
 exports.index = (req, res) =>
     Msg.get((err, msgs) => {
         if (err) {
