@@ -66,7 +66,7 @@ describe("Tests for application.", () => {
             res.should.have.status(201);
             res.body.should.be.a("object");
             res.body.should.have.property("name");
-            res.body.should.have.property("content").eql("i am not xinwei");
+            res.body.should.have.property("content").eql("i am xinwei");
           });
       });
     });
