@@ -9,15 +9,6 @@ chai.use(chaiHttp);
 chai.should();
 
 describe("Tests for application.", () => {
-  before((done) => {
-    mongoose.connect("mongodb://localhost:27017");
-    db = mongoose.connection;
-    db.on("error", console.error.bind(console, "Unable to connect to MongoDB"));
-    db.once("open", function () {
-      console.log("Connected to MongoDB");
-      done();
-    });
-  });
   describe("Test case for indexing all messages. (GET)", () => {
     it("Should retrieve all messages in the database.", async () => {
       chai
