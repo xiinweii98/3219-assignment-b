@@ -42,8 +42,9 @@ describe("Tests for application.", () => {
         .end((err, res) => {
           res.should.have.status(201);
           res.body.should.be.a("object");
-          res.body.should.have.property("name");
-          res.body.should.have.property("content");
+          res.body.should.have.property("message");
+          res.body.data.should.have.property("name");
+          res.body.data.should.have.property("content");
         });
     });
   });
@@ -65,8 +66,9 @@ describe("Tests for application.", () => {
           .end((err, res) => {
             res.should.have.status(201);
             res.body.should.be.a("object");
-            res.body.should.have.property("name");
-            res.body.should.have.property("content").eql("i am xinwei");
+            res.body.should.have.property("message");
+            res.body.data.should.have.property("name");
+            res.body.data.should.have.property("content").eql("i am xinwei");
           });
       });
     });
