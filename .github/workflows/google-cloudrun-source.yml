@@ -82,7 +82,7 @@ jobs:
       #     credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
       - name: Deploy to Cloud Run
-        id: deploy
+        id: deploy 
         uses: google-github-actions/deploy-cloudrun@v0
         with:
           service: ${{ env.SERVICE }}
